@@ -8,7 +8,7 @@ from measurement.serializers import SensorSerializer, MeasurementSerializer
 class SensorViewSet(ModelViewSet):
     queryset = Sensor.objects.all()
     serializer_class = SensorSerializer
-
+    http_method_names = ['get', 'post', 'patch']
 
 class MeasurementViewSet(ModelViewSet):
     qyeryset = Measurement.objects.all()
