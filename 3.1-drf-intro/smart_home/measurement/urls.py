@@ -11,8 +11,4 @@ router = DefaultRouter()
 router.register('sensors', SensorViewSet)
 router.register('measurements', MeasurementViewSet, basename='measurements')
 
-urlpatterns = [
-    # TODO: зарегистрируйте необходимые маршруты
-    path("admin/", admin.site.urls),
-    path("api/", include(router.urls)),
-]
+urlpatterns = router.urls
