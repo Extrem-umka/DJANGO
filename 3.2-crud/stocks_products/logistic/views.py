@@ -9,7 +9,7 @@ class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    search_fields = ['title']
+    search_fields = ['title', 'description']
     # при необходимости добавьте параметры фильтрации
 
 
