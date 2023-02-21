@@ -44,11 +44,7 @@ class StockSerializer(serializers.ModelSerializer):
         # обновляем склад по его параметрам
         stock = super().update(instance, validated_data)
         for pos in positions:
-            defaults = pos['quantity'], pos['price']
+            defaults = {'quantity':pos['quantity'], 'price':pos['price']}
             StockProduct.objects.update_or_create(product=pos['product'], stock=stock, defaults=defaults)
-
-        # здесь вам надо обновить связанные таблицы
-        # в нашем случае: таблицу StockProduct
-        # с помощью списка positions
-
+            # defaults должен передаваться в виде словаря, а не кортежа
         return stock
